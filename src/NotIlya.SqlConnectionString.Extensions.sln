@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotIlya.SqlConnectionString.Extensions", "NotIlya.SqlConnectionString.Extensions\NotIlya.SqlConnectionString.Extensions.csproj", "{C0E3FD4F-E8D5-43C2-BD32-B577A42CF649}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{BE468A3F-3AC5-47E0-8941-83FE3BADF81B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0E3FD4F-E8D5-43C2-BD32-B577A42CF649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0E3FD4F-E8D5-43C2-BD32-B577A42CF649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0E3FD4F-E8D5-43C2-BD32-B577A42CF649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0E3FD4F-E8D5-43C2-BD32-B577A42CF649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE468A3F-3AC5-47E0-8941-83FE3BADF81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE468A3F-3AC5-47E0-8941-83FE3BADF81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE468A3F-3AC5-47E0-8941-83FE3BADF81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE468A3F-3AC5-47E0-8941-83FE3BADF81B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
