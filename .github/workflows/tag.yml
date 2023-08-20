@@ -32,7 +32,7 @@ jobs:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
           PACKAGE_VERSION: ${{ steps.extract_version.outputs.version }}
         run: |
-          cd src/NotIlya.Extensions
+          cd src/NotIlya.SqlConnectionString.Extensions
           dotnet build --configuration Release
           dotnet pack --configuration Release --output ./artifacts -p:PackageVersion=${{ env.PACKAGE_VERSION }}
           dotnet nuget push ./artifacts/*.nupkg --api-key ${{ env.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
