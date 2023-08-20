@@ -53,4 +53,4 @@ Using this `config.GetDevelopmentSqlConnectionString()` empty config will be equ
 Of course you can override any of this values by providing them in config.
 
 ## SqlConnectionStringBuilder
-My extensions built on top of `SqlConnectionStringBuilder` and instead of raw connection string you can get builder. Instead of `GetSqlConnectionString` use `GetSqlConnectionStringBuilder` and instead of `GetDevelopmentSqlConnectionString` use `GetSqlConnectionStringBuilder`.
+My extensions built on top of `SqlConnectionStringBuilder` and instead of raw connection string you can get builder. Instead of `GetSqlConnectionString` use `GetSqlConnectionStringBuilder` and instead of `GetDevelopmentSqlConnectionString` use `GetDevelopmentSqlConnectionStringBuilder`.
