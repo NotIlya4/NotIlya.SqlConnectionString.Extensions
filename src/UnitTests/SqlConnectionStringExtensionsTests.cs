@@ -42,16 +42,36 @@ public class SqlConnectionStringExtensionsTests
     [Fact]
     public void GetSqlConnectionStringBuilder_ProvideConnUsingInlineString_ParseString()
     {
-        SqlConnectionStringBuilder conn = _rawConnConfig.GetSqlConnectionStringBuilder("Sql");
+        SqlConnectionStringBuilder result = _rawConnConfig.GetSqlConnectionStringBuilder("Sql");
         
-        Assert.Equal(_rawConn, conn);
+        Assert.Equal(_rawConn, result);
     }
 
     [Fact]
     public void GetSqlConnectionStringBuilder_ProvideConnByExplodingItToProperties_ParseProperties()
     {
-        SqlConnectionStringBuilder conn = _explodedConnConfig.GetSqlConnectionStringBuilder("Sql");
+        SqlConnectionStringBuilder result = _explodedConnConfig.GetSqlConnectionStringBuilder("Sql");
         
-        Assert.Equal(_explodedConn, conn);
+        Assert.Equal(_explodedConn, result);
+    }
+
+    [Fact]
+    public void GetDevelopmentSqlConnectionStringBuilder_ProvidedUserId_OverrideDevelopmentDefaults()
+    {
+        var expect = new SqlConnectionStringBuilder();
+        expect.UserID = "Biba";
+        expect.Password = "1tsJusT@S@mpleP@ssword!";
+        expect.DataSource = "localhost,1433";
+        expect.MultipleActiveResultSets = true;
+        expect.TrustServerCertificate = true;
+
+        var config = new ConfigurationManager()
+        {
+            ["Sql:User Id"] = "Biba"
+        };
+
+        var result = config.GetDevelopmentSqlConnectionStringBuilder("Sql");
+        
+        Assert.True(expect.EquivalentTo(result));
     }
 }
