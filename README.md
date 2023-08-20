@@ -1,4 +1,4 @@
-# NotIlya.SqlConnectionString.Extensions [![NuGet Version](http://img.shields.io/nuget/v/NotIlya.SqlConnectionString.Extensions.svg?style=flat)]
+# NotIlya.SqlConnectionString.Extensions ![NuGet Version](http://img.shields.io/nuget/v/NotIlya.SqlConnectionString.Extensions.svg?style=flat)
 Several extensions for `IConfiguration` that helps getting connection string.
 
 ## Quickstart
