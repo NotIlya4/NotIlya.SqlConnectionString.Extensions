@@ -1,73 +1,56 @@
 # NotIlya.SqlConnectionString.Extensions
 Several extensions for `IConfiguration` that helps getting connection string.
 
-## Use cases
-### Explode connection string
-Config:
+## Quickstart
+You can have config like this:
 ```json
 {
   "SqlConnectionString": {
-    "Server": "localhost,1433", // or "Data Source"
-    "Database": "TestDb", // or "Initial Catalog"
-    "User Id": "SA",
-    "Password": "1tsJusT@S@mpleP@ssword!"
-  }
-}
-```
-Result:
-```csharp
-var connectionString = config.GetSqlConnectionString();
-/* connectionString == "localhost,1433;
-                        Initial Catalog=TestDb;
-                        User Id=SA;
-                        Password=1tsJusT@S@mpleP@ssword!" 
-*/
-```
-**P.S.:** You can specify your own section using `key` parameter in any method:
-```json
-{
-  "SqlServer": { // Edited section
     "Server": "localhost,1433",
     "Database": "TestDb"
   }
 }
 ```
-Get it:
-```csharp
-var connectionString = config.GetSqlConnectionString("SqlServer");
-```
-
-### Inline connection string
-You can inline connection string:
+Or like this:
 ```json
 {
-  "SqlConnectionString": "localhost,1433;Initial Catalog=TestDb;User Id=SA;Password=1tsJusT@S@mpleP@ssword!"
+  "SqlConnectionString": "localhost,1433;Database=TestDb"
 }
 ```
-Result:
-```csharp
-var connectionString = config.GetSqlConnectionString();
-/* connectionString == "localhost,1433;
-                        Initial Catalog=TestDb;
-                        User Id=SA;
-                        Password=1tsJusT@S@mpleP@ssword!"
-*/
-```
+And you can get it using `config.GetSqlConnectionString()`. 
 
-### Defaults for development environment
-Config:
+## Custom section
+To specify your own section use `key` parameter in any method:
 ```json
 {
-  // Empty. But you can override any development defaults
+  "SqlServer": {
+    "Server": "localhost,1433",
+    "Database": "TestDb"
+  }
 }
 ```
-Result:
-```csharp
-var connectionString = config.GetDevelopmentSqlConnectionString();
-/* connectionString == "localhost,1433;
-                        User Id=SA;
-                        Password=1tsJusT@S@mpleP@ssword!;
-                        MultipleActiveResultSets=True;
-                        TrustServerCertificate=True"
-*/
+Get it by `config.GetSqlConnectionString("SqlServer")`.
+
+## Development defaults
+There is also method that has predefined defaults for development environments. Your empty config:
+```json
+{
+  
+}
 ```
+Using this `config.GetDevelopmentSqlConnectionString()` empty config will be equivalent to:
+```json
+{
+  "SqlConnectionString": {
+    "Server": "localhost,1433",
+    "User Id": "SA",
+    "Password": "1tsJusT@S@mpleP@ssword!",
+    "MultipleActiveResultSets": true,
+    "TrustServerCertificate": true
+  }
+}
+```
+Of course you can override any of this values by providing them in config.
+
+## SqlConnectionStringBuilder
+My extensions built on top of `SqlConnectionStringBuilder` and instead of raw connection string you can get builder. Instead of `GetSqlConnectionString` use `GetSqlConnectionStringBuilder` and instead of `GetDevelopmentSqlConnectionString` use `GetSqlConnectionStringBuilder`.
